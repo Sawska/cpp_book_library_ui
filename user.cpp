@@ -128,7 +128,7 @@ std::vector<Book> User::load_borrowed_books(sqlite3 *db)
 
     std::vector<Book> books = std::vector<Book>();
 
-    std::string sql = "SELECT FROM books WHERE borrowed_by_id = ?";
+    std::string sql = "SELECT id, name, author, date, borrowed_by_id FROM books WHERE borrowed_by_id = ?";
     sqlite3_stmt* stmt;
 
         int rc = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
@@ -235,7 +235,7 @@ User User::create_user(sqlite3 *db)
     std::getline(std::cin, new_name);
         user.username = new_name;
 
-        if (!check_if_username_already_exists(db)) {
+        if (!user.check_if_username_already_exists(db)) {
             break;
         } else {
             std::cout << "Username '" << new_name << "' already exists. Please choose another.\n";
@@ -300,5 +300,40 @@ void User::delete_user(sqlite3 *db)
 
 
 
-// #TODO:
 
+
+int main() {
+    sqlite3* db;
+
+    
+    if (sqlite3_open("my_db.db", &db) != SQLITE_OK) {
+        std::cerr << "Error opening database: " << sqlite3_errmsg(db) << std::endl;
+        return 1;
+    }
+
+    
+    create_user_db_not_exists(db);
+    if_db_not_exists(db);
+
+    
+    User user;
+    user = user.create_user(db);
+
+    
+
+    Book book;
+
+    book = book.create_book(db);
+    book.borrow_book(db,user.id);
+    std::cout << book.borrowed_by << std::endl;
+    book.check_if_book_is_available(db);
+    delete_book(db,book.id);
+
+
+    user.delete_user(db);
+
+    
+    sqlite3_close(db);
+
+    return 0;
+}

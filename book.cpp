@@ -1,6 +1,10 @@
 #include "book.h"
 #include <iostream>
 #include <vector>
+#include "user.h"
+#include <cryptopp/sha.h>
+#include <cryptopp/hex.h>
+#include <cryptopp/filters.h>
 
 
 
@@ -135,34 +139,45 @@ void Book::update_book(sqlite3* db) {
 
 void Book::check_if_book_is_available(sqlite3* db) {
     if (borrowed_by == -1) {
-         std::cout << "Book is available to borrow" << std::endl;
+        std::cout << "Book is available to borrow" << std::endl;
     } else {
-         std::string user_name_sql = "SELECT name FROM users WHERE id = ?";
-            sqlite3_stmt* user_stmt;
-            sqlite3_prepare_v2(db, user_name_sql.c_str(), -1, &user_stmt, nullptr);
-            sqlite3_bind_int(user_stmt, 1, borrowed_by);
+        std::string user_name_sql = "SELECT username FROM users WHERE id = ?";
+        sqlite3_stmt* user_stmt;
+        int rc = sqlite3_prepare_v2(db, user_name_sql.c_str(), -1, &user_stmt, nullptr);
+        if (rc != SQLITE_OK) {
+            std::cerr << "Failed to prepare SQL: " << sqlite3_errmsg(db) << std::endl;
+            return;
+        }
 
-            if (sqlite3_step(user_stmt) == SQLITE_ROW) {
-                const char* user_name = reinterpret_cast<const char*>(sqlite3_column_text(user_stmt, 0));
-                std::cout << "Book is borrowed by user: " << user_name << std::endl;
-            } else {
-                std::cout << "Book is borrowed by unknown user" << std::endl;
-            }
-            sqlite3_finalize(user_stmt);
+        sqlite3_bind_int(user_stmt, 1, borrowed_by);
+
+        rc = sqlite3_step(user_stmt);
+        if (rc == SQLITE_ROW) {
+            const char* username = reinterpret_cast<const char*>(sqlite3_column_text(user_stmt, 0));
+            std::cout << "Book is borrowed by user: " << username << std::endl;
+        } else {
+            std::cout << "Book is borrowed by unknown user" << std::endl;
+        }
+
+        sqlite3_finalize(user_stmt);
     }
 }
 
 
-void Book::borrow_book(sqlite3 *db, int borow_id)
-{
+
+
+
+void Book::borrow_book(sqlite3 *db, int borow_id) {
     if (borrowed_by != -1) {
-        std::cout << "Can't borrow book, book is already borrowed";
+        std::cout << "Can't borrow book, book is already borrowed" << std::endl;
+        return;
     }
 
     borrowed_by = borow_id;
 
-    update_book(db);
+    Book::update_book(db);
 }
+
 
 void Book::unborrow_book(sqlite3 *db)
 {
