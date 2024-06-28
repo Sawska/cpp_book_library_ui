@@ -224,15 +224,13 @@ void User::login(sqlite3* db) {
 
 
 
-User User::create_user(sqlite3 *db)
-{
-
+User User::create_user(sqlite3 *db) {
     User user;
     std::string new_name;
 
     while (true) {
-    std::cout << "Enter  username: ";
-    std::getline(std::cin, new_name);
+        std::cout << "Enter username: ";
+        std::getline(std::cin, new_name);
         user.username = new_name;
 
         if (!user.check_if_username_already_exists(db)) {
@@ -242,11 +240,8 @@ User User::create_user(sqlite3 *db)
         }
     }
 
-     std::string password1;
-    std::string password2;
-
-    while (true)
-    {
+    std::string password1, password2;
+    while (true) {
         std::cout << "Enter new password: ";
         std::getline(std::cin, password1);
         std::cout << "Re-enter new password: ";
@@ -255,32 +250,31 @@ User User::create_user(sqlite3 *db)
         if (password1 != password2) {
             std::cout << "Passwords do not match. Please try again." << std::endl;
         } else {
-            break;  
+            break;
         }
     }
 
-
     user.password = sha256(password1);
-    save_user(db);
+    user.save_user(db);
 
     user.id = sqlite3_last_insert_rowid(db);
-
     return user;
-}   
+}
+   
 
-void User::save_user(sqlite3 *db)
-{
-    std::string sql = "INSERT INTO users (username,password) VALUES(?, ?);";
+void User::save_user(sqlite3 *db) {
+    std::string sql = "INSERT INTO users (username, password) VALUES (?, ?);";
     sqlite3_stmt* stmt;
-    sqlite3_prepare_v2(db,sql.c_str(),-1,&stmt,nullptr);
-    sqlite3_bind_text(stmt,1,username.c_str(),-1,SQLITE_STATIC);
-    sqlite3_bind_text(stmt,2,password.c_str(),-1,SQLITE_STATIC);
+    sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, password.c_str(), -1, SQLITE_STATIC);
 
     if (sqlite3_step(stmt) != SQLITE_DONE) {
-        std::cerr << "Error inserting user:" << sqlite3_errmsg(db) << std::endl;
+        std::cerr << "Error inserting user: " << sqlite3_errmsg(db) << std::endl;
     }
     sqlite3_finalize(stmt);
 }
+
 
 
 
@@ -319,18 +313,19 @@ int main() {
     User user;
     user = user.create_user(db);
 
+    std::cout << user.username << std::endl;
+
     
 
     Book book;
 
     book = book.create_book(db);
     book.borrow_book(db,user.id);
-    std::cout << book.borrowed_by << std::endl;
     book.check_if_book_is_available(db);
-    delete_book(db,book.id);
+    // delete_book(db,book.id);
 
 
-    user.delete_user(db);
+    // user.delete_user(db);
 
     
     sqlite3_close(db);
