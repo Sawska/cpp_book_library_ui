@@ -23,6 +23,16 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(library_cpp
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        loginform.h
+        loginform.cpp
+        registerform.h
+        registerform.cpp
+        addbookform.h
+        addbookform.cpp
+        booklistwidget.h
+        booklistwidget.cpp
+        useroptionswidget.h
+        useroptionswidget.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET library_cpp APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

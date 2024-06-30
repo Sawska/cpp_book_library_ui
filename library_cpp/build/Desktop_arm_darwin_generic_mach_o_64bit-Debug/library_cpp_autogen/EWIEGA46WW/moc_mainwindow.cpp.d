@@ -39,6 +39,7 @@
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/malloc/_malloc.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/malloc/_malloc_type.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/malloc/_ptrcheck.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sqlite3.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/stddef.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/stdio.h \
@@ -91,6 +92,10 @@
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/syslimits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/wait.h \
+  /Users/alexanderkorzh/Desktop/coding/library/book.h \
+  /Users/alexanderkorzh/Desktop/coding/library/library_cpp/loginform.h \
+  /Users/alexanderkorzh/Desktop/coding/library/library_cpp/registerform.h \
+  /Users/alexanderkorzh/Desktop/coding/library/user.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/q20memory.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/q20type_traits.h \
@@ -135,6 +140,7 @@
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qglobalstatic.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qhash.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qhashfunctions.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qiodevice.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qiodevicebase.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qiterable.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qiterator.h \
@@ -202,6 +208,7 @@
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qtversionchecks.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qtypeinfo.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qtypes.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qurl.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qutf8stringview.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qvariant.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
@@ -221,20 +228,37 @@
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qpen.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qpicture.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qregion.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtextcursor.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtextdocument.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtextformat.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtextoption.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QLineEdit \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QPushButton \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QVBoxLayout \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractbutton.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qboxlayout.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qgridlayout.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayout.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayoutitem.h \
+  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qlineedit.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qpushbutton.h \
   /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \

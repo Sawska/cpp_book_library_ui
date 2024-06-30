@@ -292,9 +292,39 @@
 	"HEADERS" : 
 	[
 		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/addbookform.h",
+			"MU",
+			"EWIEGA46WW/moc_addbookform.cpp",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/booklistwidget.h",
+			"MU",
+			"EWIEGA46WW/moc_booklistwidget.cpp",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/loginform.h",
+			"MU",
+			"EWIEGA46WW/moc_loginform.cpp",
+			null
+		],
+		[
 			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/registerform.h",
+			"MU",
+			"EWIEGA46WW/moc_registerform.cpp",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/useroptionswidget.h",
+			"MU",
+			"EWIEGA46WW/moc_useroptionswidget.cpp",
 			null
 		]
 	],
@@ -356,12 +386,37 @@
 	"SOURCES" : 
 	[
 		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/addbookform.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/booklistwidget.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/loginform.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/main.cpp",
 			"MU",
 			null
 		],
 		[
 			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/registerform.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/alexanderkorzh/Desktop/coding/library/library_cpp/useroptionswidget.cpp",
 			"MU",
 			null
 		]

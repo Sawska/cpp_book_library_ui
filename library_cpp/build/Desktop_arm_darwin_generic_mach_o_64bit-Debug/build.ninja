@@ -73,6 +73,46 @@ build CMakeFiles/library_cpp.dir/mainwindow.cpp.o: CXX_COMPILER__library_cpp_uns
   OBJECT_DIR = CMakeFiles/library_cpp.dir
   OBJECT_FILE_DIR = CMakeFiles/library_cpp.dir
 
+build CMakeFiles/library_cpp.dir/loginform.cpp.o: CXX_COMPILER__library_cpp_unscanned_Debug /Users/alexanderkorzh/Desktop/coding/library/library_cpp/loginform.cpp || cmake_object_order_depends_target_library_cpp
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/library_cpp.dir/loginform.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexanderkorzh/Desktop/coding/library/library_cpp/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/library_cpp_autogen/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Headers -iframework /Users/alexanderkorzh/Qt/6.7.2/macos/lib -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/mkspecs/macx-clang -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/library_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/library_cpp.dir
+
+build CMakeFiles/library_cpp.dir/registerform.cpp.o: CXX_COMPILER__library_cpp_unscanned_Debug /Users/alexanderkorzh/Desktop/coding/library/library_cpp/registerform.cpp || cmake_object_order_depends_target_library_cpp
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/library_cpp.dir/registerform.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexanderkorzh/Desktop/coding/library/library_cpp/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/library_cpp_autogen/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Headers -iframework /Users/alexanderkorzh/Qt/6.7.2/macos/lib -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/mkspecs/macx-clang -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/library_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/library_cpp.dir
+
+build CMakeFiles/library_cpp.dir/addbookform.cpp.o: CXX_COMPILER__library_cpp_unscanned_Debug /Users/alexanderkorzh/Desktop/coding/library/library_cpp/addbookform.cpp || cmake_object_order_depends_target_library_cpp
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/library_cpp.dir/addbookform.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexanderkorzh/Desktop/coding/library/library_cpp/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/library_cpp_autogen/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Headers -iframework /Users/alexanderkorzh/Qt/6.7.2/macos/lib -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/mkspecs/macx-clang -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/library_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/library_cpp.dir
+
+build CMakeFiles/library_cpp.dir/booklistwidget.cpp.o: CXX_COMPILER__library_cpp_unscanned_Debug /Users/alexanderkorzh/Desktop/coding/library/library_cpp/booklistwidget.cpp || cmake_object_order_depends_target_library_cpp
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/library_cpp.dir/booklistwidget.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexanderkorzh/Desktop/coding/library/library_cpp/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/library_cpp_autogen/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Headers -iframework /Users/alexanderkorzh/Qt/6.7.2/macos/lib -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/mkspecs/macx-clang -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/library_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/library_cpp.dir
+
+build CMakeFiles/library_cpp.dir/useroptionswidget.cpp.o: CXX_COMPILER__library_cpp_unscanned_Debug /Users/alexanderkorzh/Desktop/coding/library/library_cpp/useroptionswidget.cpp || cmake_object_order_depends_target_library_cpp
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/library_cpp.dir/useroptionswidget.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexanderkorzh/Desktop/coding/library/library_cpp/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/library_cpp_autogen/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Headers -iframework /Users/alexanderkorzh/Qt/6.7.2/macos/lib -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/mkspecs/macx-clang -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/include -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Headers -isystem /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/library_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/library_cpp.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target library_cpp
@@ -81,7 +121,7 @@ build CMakeFiles/library_cpp.dir/mainwindow.cpp.o: CXX_COMPILER__library_cpp_uns
 #############################################
 # Link the executable library_cpp.app/Contents/MacOS/library_cpp
 
-build library_cpp.app/Contents/MacOS/library_cpp: CXX_EXECUTABLE_LINKER__library_cpp_Debug CMakeFiles/library_cpp.dir/library_cpp_autogen/mocs_compilation.cpp.o CMakeFiles/library_cpp.dir/main.cpp.o CMakeFiles/library_cpp.dir/mainwindow.cpp.o | /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/QtGui /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore || library_cpp_autogen library_cpp_autogen_timestamp_deps
+build library_cpp.app/Contents/MacOS/library_cpp: CXX_EXECUTABLE_LINKER__library_cpp_Debug CMakeFiles/library_cpp.dir/library_cpp_autogen/mocs_compilation.cpp.o CMakeFiles/library_cpp.dir/main.cpp.o CMakeFiles/library_cpp.dir/mainwindow.cpp.o CMakeFiles/library_cpp.dir/loginform.cpp.o CMakeFiles/library_cpp.dir/registerform.cpp.o CMakeFiles/library_cpp.dir/addbookform.cpp.o CMakeFiles/library_cpp.dir/booklistwidget.cpp.o CMakeFiles/library_cpp.dir/useroptionswidget.cpp.o | /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/QtGui /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore || library_cpp_autogen library_cpp_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   LINK_LIBRARIES = -Wl,-rpath,/Users/alexanderkorzh/Qt/6.7.2/macos/lib  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtWidgets.framework/Versions/A/QtWidgets  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtGui.framework/Versions/A/QtGui  /Users/alexanderkorzh/Qt/6.7.2/macos/lib/QtCore.framework/Versions/A/QtCore  -framework IOKit  -framework DiskArbitration  -framework OpenGL  -framework AGL  -framework AppKit  -framework ImageIO  -framework Metal
   LINK_PATH = -F/Users/alexanderkorzh/Qt/6.7.2/macos/lib

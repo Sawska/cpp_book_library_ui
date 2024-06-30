@@ -155,7 +155,7 @@ std::vector<Book> User::load_borrowed_books(sqlite3 *db)
 }
 
 
-void User::login(sqlite3* db) {
+User User::login(sqlite3* db) {
     std::cout << "Enter username: ";
     std::string username;
     std::getline(std::cin, username);
