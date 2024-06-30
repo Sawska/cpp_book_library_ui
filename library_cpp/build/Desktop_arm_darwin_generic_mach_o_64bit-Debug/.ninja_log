@@ -1,0 +1,9 @@
+# ninja log v6
+2	225	1719746163874193137	library_cpp_autogen/timestamp	ef429a6b8165c23e
+2	225	1719746163874193137	library_cpp_autogen/mocs_compilation.cpp	ef429a6b8165c23e
+229	1654	1719746163889287639	CMakeFiles/library_cpp.dir/mainwindow.cpp.o	41bbc63df8cf94aa
+229	1643	1719746163888875658	CMakeFiles/library_cpp.dir/library_cpp_autogen/mocs_compilation.cpp.o	adc9494ce3fd7f71
+1669	1850	1719746165329524820	library_cpp.app/Contents/MacOS/library_cpp	9a8ba5a9e10d35f2
+2	225	1719746163874193137	/Users/alexanderkorzh/Desktop/coding/library/library_cpp/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/library_cpp_autogen/timestamp	ef429a6b8165c23e
+2	225	1719746163874193137	/Users/alexanderkorzh/Desktop/coding/library/library_cpp/build/Desktop_arm_darwin_generic_mach_o_64bit-Debug/library_cpp_autogen/mocs_compilation.cpp	ef429a6b8165c23e
+229	1669	1719746163889125480	CMakeFiles/library_cpp.dir/main.cpp.o	255733ee0a3802ce

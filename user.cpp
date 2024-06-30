@@ -296,39 +296,3 @@ void User::delete_user(sqlite3 *db)
 
 
 
-int main() {
-    sqlite3* db;
-
-    
-    if (sqlite3_open("my_db.db", &db) != SQLITE_OK) {
-        std::cerr << "Error opening database: " << sqlite3_errmsg(db) << std::endl;
-        return 1;
-    }
-
-    
-    create_user_db_not_exists(db);
-    if_db_not_exists(db);
-
-    
-    User user;
-    user = user.create_user(db);
-
-    std::cout << user.username << std::endl;
-
-    
-
-    Book book;
-
-    book = book.create_book(db);
-    book.borrow_book(db,user.id);
-    book.check_if_book_is_available(db);
-    // delete_book(db,book.id);
-
-
-    // user.delete_user(db);
-
-    
-    sqlite3_close(db);
-
-    return 0;
-}
