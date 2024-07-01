@@ -76,52 +76,16 @@ void User::update_user(sqlite3 *db)
     sqlite3_finalize(stmt);
 }
 
-void User::change_password(sqlite3 *db)
+void User::change_password(std::string new_password,sqlite3 *db)
 {
-    std::string password1;
-    std::string password2;
-
-    while (true)
-    {
-        std::cout << "Enter new password: ";
-        std::getline(std::cin, password1);
-        std::cout << "Re-enter new password: ";
-        std::getline(std::cin, password2);
-
-        if (password1 != password2) {
-            std::cout << "Passwords do not match. Please try again." << std::endl;
-        } else {
-            break;  
-        }
-    }
-    password = sha256(password1);
+    password = sha256(new_password);
     update_user(db);
 }
 
 
 
 
-void User::change_username(sqlite3 *db)
-{
-    std::string new_name;
-    while (true)
-    {
-        std::cout << "Enter new username: ";
-        std::getline(std::cin, new_name);
 
-        std::string previous = username;
-        username = new_name;
-
-        if (!check_if_username_already_exists(db)) {
-            break;  
-        } else {
-            std::cout << "Username '" << new_name << "' already exists. Please choose another.\n";
-            username = previous;  
-        }
-    }
-
-    update_user(db);
-}
 
 std::vector<Book> User::load_borrowed_books(sqlite3 *db)
 {
@@ -156,14 +120,7 @@ std::vector<Book> User::load_borrowed_books(sqlite3 *db)
 
 
 User User::login(sqlite3* db) {
-    std::cout << "Enter username: ";
-    std::string username;
-    std::getline(std::cin, username);
-
-    std::cout << "Enter password: ";
-    std::string password;
-    std::getline(std::cin, password);
-
+    
     std::vector<Book> books; 
 
     
@@ -224,37 +181,11 @@ User User::login(sqlite3* db) {
 
 
 
-User User::create_user(sqlite3 *db) {
+User User::create_user(std::string password,std::string username,sqlite3 *db) {
     User user;
-    std::string new_name;
+    
 
-    while (true) {
-        std::cout << "Enter username: ";
-        std::getline(std::cin, new_name);
-        user.username = new_name;
-
-        if (!user.check_if_username_already_exists(db)) {
-            break;
-        } else {
-            std::cout << "Username '" << new_name << "' already exists. Please choose another.\n";
-        }
-    }
-
-    std::string password1, password2;
-    while (true) {
-        std::cout << "Enter new password: ";
-        std::getline(std::cin, password1);
-        std::cout << "Re-enter new password: ";
-        std::getline(std::cin, password2);
-
-        if (password1 != password2) {
-            std::cout << "Passwords do not match. Please try again." << std::endl;
-        } else {
-            break;
-        }
-    }
-
-    user.password = sha256(password1);
+    user.password = sha256(password);
     user.save_user(db);
 
     user.id = sqlite3_last_insert_rowid(db);

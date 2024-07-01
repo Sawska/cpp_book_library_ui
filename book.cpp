@@ -68,52 +68,19 @@ void if_db_not_exists(sqlite3* db) {
     }
 }
 
-void Book::display() {
-    std::cout << "serial number " << id << name << " by " << author << ", Published on: " << date << std::endl;
-}
-
-void Book::save(sqlite3* db) {
-    std::string sql = "INSERT INTO books (name, author, date, borrowed_by_id) VALUES (?, ?, ?, ?);";
-    sqlite3_stmt* stmt;
-    sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
-    sqlite3_bind_text(stmt, 1, name.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, author.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 3, date.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_int(stmt, 4, borrowed_by);
-
-    if (sqlite3_step(stmt) != SQLITE_DONE) {
-        std::cerr << "Error inserting Book: " << sqlite3_errmsg(db) << std::endl;
-    }
-
-    sqlite3_finalize(stmt);
-}
 
 
-Book Book::create_book(sqlite3* db)
+
+Book Book::create_book(std::string name, std::string author,std::string date,sqlite3* db)
 {
     Book book;
 
-    std::string original_name;
-    std::string original_author;
-    std::string original_date;
-
-    std::cout << "Enter book name: ";
-    std::getline(std::cin, original_name);
-
-    book.name = original_name;
-
-    std::cout << "Enter author: ";
-    std::getline(std::cin, original_author);
-
-    book.author = original_author;
-
-    std::cout << "Enter date: ";
-    std::getline(std::cin, original_date);
-
-    book.date = original_date;
-
+    book.name = name;
+    book.author = author;
+    book.date = date;
     book.borrowed_by = -1;
 
+    
     
     book.save(db);
 
@@ -150,7 +117,7 @@ void Book::update_book(sqlite3* db) {
 }
 
 
-void Book::check_if_book_is_available(sqlite3* db) {
+std::string Book::check_if_book_is_available(sqlite3* db) {
     std::cout << "Checking if book is available. Borrowed by ID: " << borrowed_by << std::endl;
 
     if (borrowed_by == -1) {
@@ -176,8 +143,10 @@ void Book::check_if_book_is_available(sqlite3* db) {
             std::cout << "Debug: user_id = " << user_id << std::endl;
             std::cout << "Debug: username_text = " << (username_text ? reinterpret_cast<const char*>(username_text) : "null") << std::endl;
             std::cout << "Book is borrowed by user ID: " << user_id << " Username: " << username << std::endl;
+            return username;
         } else {
             std::cout << "Book is borrowed by unknown user" << std::endl;
+            return "";
         }
 
         sqlite3_finalize(user_stmt);
@@ -191,16 +160,18 @@ void Book::check_if_book_is_available(sqlite3* db) {
 
 
 
-void Book::borrow_book(sqlite3 *db, int borow_id) {
+bool Book::borrow_book(sqlite3 *db, int borow_id) {
     if (borrowed_by != -1) {
         std::cout << "Can't borrow book, book is already borrowed" << std::endl;
-        return;
+        return false;
     }
 
     borrowed_by = borow_id;
     std::cout << "Borrowing book. Borrowed by user ID: " << borrowed_by << std::endl;
 
     update_book(db);
+
+    return true;
 }
 
 
@@ -212,39 +183,13 @@ void Book::unborrow_book(sqlite3 *db)
     update_book(db);
 }
 
-void Book::change_date(sqlite3 *db)
-{
-    std::string new_date;
-    std::cout << "Enter new date: ";
-    std::cin >> new_date;
-    date = new_date;
-
-    update_book(db);
-}
-
-void Book::change_author(sqlite3 *db)
-{
-    std::string new_author;
-    std::cout << "Enter new author: ";
-    std::cin.ignore(); 
-    std::getline(std::cin, new_author); 
-    author = new_author;
-
-    update_book(db);
-}
 
 
 
-void Book::change_name_for_a_book(sqlite3 *db)
-{
-    std::string new_title;
-    std::cout << "Enter new book title: ";
-    std::cin.ignore(); 
-    std::getline(std::cin, new_title); 
-    name = new_title;
 
-    update_book(db);
-}
+
+
+
 
 
 void delete_book(sqlite3* db, int id) {
@@ -255,3 +200,25 @@ void delete_book(sqlite3* db, int id) {
     sqlite3_step(stmt);
     sqlite3_finalize(stmt);
 }
+
+
+
+
+void Book::save(sqlite3* db) {
+    std::string sql = "INSERT INTO books (name, author, date, borrowed_by_id) VALUES (?, ?, ?, ?);";
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, name.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, author.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, date.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt, 4, borrowed_by);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        std::cerr << "Error inserting Book: " << sqlite3_errmsg(db) << std::endl;
+    }
+
+    sqlite3_finalize(stmt);
+}
+
+
+
