@@ -2,9 +2,9 @@
 #include <iostream>
 #include <vector>
 #include "user.h"
-#include <cryptopp/sha.h>
-#include <cryptopp/hex.h>
-#include <cryptopp/filters.h>
+// #include <cryptopp/sha.h>
+// #include <cryptopp/hex.h>
+// #include <cryptopp/filters.h>
 
 
 
@@ -122,13 +122,16 @@ std::string Book::check_if_book_is_available(sqlite3* db) {
 
     if (borrowed_by == -1) {
         std::cout << "Book is available to borrow" << std::endl;
+        // Return an appropriate value indicating availability
+        return "available";
     } else {
         std::string user_name_sql = "SELECT id, username FROM users WHERE id = ?";
         sqlite3_stmt* user_stmt;
         int rc = sqlite3_prepare_v2(db, user_name_sql.c_str(), -1, &user_stmt, nullptr);
         if (rc != SQLITE_OK) {
             std::cerr << "Failed to prepare SQL: " << sqlite3_errmsg(db) << std::endl;
-            return;
+            // Return an appropriate value or handle the error
+            return "error";
         }
 
         sqlite3_bind_int(user_stmt, 1, borrowed_by);
@@ -143,15 +146,19 @@ std::string Book::check_if_book_is_available(sqlite3* db) {
             std::cout << "Debug: user_id = " << user_id << std::endl;
             std::cout << "Debug: username_text = " << (username_text ? reinterpret_cast<const char*>(username_text) : "null") << std::endl;
             std::cout << "Book is borrowed by user ID: " << user_id << " Username: " << username << std::endl;
+
+            // Return the username indicating who borrowed the book
             return username;
         } else {
             std::cout << "Book is borrowed by unknown user" << std::endl;
+            // Return an empty string or appropriate value
             return "";
         }
 
         sqlite3_finalize(user_stmt);
     }
 }
+
 
 
 

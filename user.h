@@ -5,6 +5,9 @@
 #include <vector>
 #include <sqlite3.h>
 #include "book.h" 
+#include <cryptopp/sha.h>
+#include <cryptopp/hex.h>
+#include <cryptopp/filters.h>
 
 struct User {
     static int id;
@@ -16,7 +19,7 @@ struct User {
     void   delete_user(sqlite3* db);
     void   update_user(sqlite3* db);
     std::vector<Book> load_borrowed_books(sqlite3* db);
-    User   login(sqlite3 *db);
+    User login(sqlite3* db, const std::string& username, const std::string& password);
     void change_password(std::string new_password,sqlite3 *db);
 
     bool   check_if_username_already_exists(sqlite3* db);

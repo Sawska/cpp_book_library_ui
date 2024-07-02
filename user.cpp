@@ -1,9 +1,9 @@
 #include "user.h"
 #include <iostream>
 #include <vector>
-#include <cryptopp/sha.h>
-#include <cryptopp/hex.h>
-#include <cryptopp/filters.h>
+// #include <cryptopp/sha.h>
+// #include <cryptopp/hex.h>
+// #include <cryptopp/filters.h>
 
 
 std::string sha256(const std::string& password) {
@@ -119,30 +119,29 @@ std::vector<Book> User::load_borrowed_books(sqlite3 *db)
 }
 
 
-User User::login(sqlite3* db) {
-    
-    std::vector<Book> books; 
+User User::login(sqlite3* db, const std::string& username, const std::string& password) {
+    User user;
+    user.username = username; // Set the username for the user object
+    std::vector<Book> books;
 
-    
     std::string sql =
-    "SELECT "
-    "    users.id, users.username, "
-    "    books.id AS book_id, books.name AS book_name, "
-    "    books.date AS book_date, books.author AS book_author "
-    "FROM "
-    "    users "
-    "LEFT JOIN "
-    "    books ON users.id = books.borrowed_by_id "
-    "WHERE "
-    "    users.username = ? AND users.password = ?";
-
+        "SELECT "
+        "    users.id, users.username, "
+        "    books.id AS book_id, books.name AS book_name, "
+        "    books.date AS book_date, books.author AS book_author "
+        "FROM "
+        "    users "
+        "LEFT JOIN "
+        "    books ON users.id = books.borrowed_by "
+        "WHERE "
+        "    users.username = ? AND users.password = ?";
 
     sqlite3_stmt* stmt;
     int rc = sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr);
 
     if (rc != SQLITE_OK) {
         std::cerr << "Failed to prepare SQL statement: " << sqlite3_errmsg(db) << std::endl;
-        return;
+        return user; // Return an empty user object
     }
 
     sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
@@ -151,32 +150,33 @@ User User::login(sqlite3* db) {
     rc = sqlite3_step(stmt);
 
     if (rc == SQLITE_ROW) {
-        
-        int userId = sqlite3_column_int(stmt, 0); 
-        std::string fetchedUsername(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
+        int userId = sqlite3_column_int(stmt, 0);
+        user.id = userId; // Set the user ID
+        user.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
 
-        std::cout << "Login successful! User ID: " << userId << ", Username: " << fetchedUsername << std::endl;
+        std::cout << "Login successful! User ID: " << userId << ", Username: " << user.username << std::endl;
 
         do {
-            int bookId = sqlite3_column_int(stmt, 2); // Fetch book ID as int
-            std::string bookName(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3))); 
-            std::string bookDate(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4))); 
-            std::string bookAuthor(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 5))); 
+            int bookId = sqlite3_column_int(stmt, 2);
+            std::string bookName(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3)));
+            std::string bookDate(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4)));
+            std::string bookAuthor(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 5)));
 
-            Book book = { bookId, bookName, bookDate, userId,bookAuthor };
+            Book book = { bookId, bookName, bookAuthor, userId, bookDate };
             books.push_back(book);
-        } while (sqlite3_step(stmt) == SQLITE_ROW); 
+        } while (sqlite3_step(stmt) == SQLITE_ROW);
 
-        
         for (const auto& book : books) {
             std::cout << "Book ID: " << book.id << ", Name: " << book.name << ", Author: " << book.author << std::endl;
         }
 
+        user.books = books; // Set the borrowed books for the user
     } else {
         std::cout << "Login failed. Invalid username or password." << std::endl;
     }
 
-    sqlite3_finalize(stmt); 
+    sqlite3_finalize(stmt);
+    return user; // Return the user object
 }
 
 

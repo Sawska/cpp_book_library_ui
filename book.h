@@ -4,6 +4,9 @@
 #include <string>
 #include <sqlite3.h>
 #include <vector>
+#include <cryptopp/sha.h>
+#include <cryptopp/hex.h>
+#include <cryptopp/filters.h>
 
 struct Book {
      int id;
